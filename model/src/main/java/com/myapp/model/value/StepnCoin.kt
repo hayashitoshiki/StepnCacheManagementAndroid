@@ -9,7 +9,6 @@ sealed class StepnCoin {
      * 価格
      */
     abstract val money: Float
-
     /**
      * 表示用ラベル
      */
