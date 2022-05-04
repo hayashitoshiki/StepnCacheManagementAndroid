@@ -2,4 +2,6 @@
     <string name="title_home">Home</string>
     <string name="title_spending_total">Spending</string>
     <string name="title_wallet_total">Wallet</string>
+    <string name="title_setting">Setting</string>
+
 </resources>

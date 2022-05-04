@@ -10,6 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.myapp.presentation.screen.HomeScreen
+import com.myapp.presentation.screen.SettingScreen
 import com.myapp.presentation.screen.SpendingTotalScreen
 import com.myapp.presentation.screen.WalletTotalScreen
 
@@ -28,6 +29,7 @@ enum class NavigationScreens(
     HOME_SCREEN(Icons.Filled.Home, "home_route", R.string.title_home),
     SPENDING_TOTAL_SCREEN(Icons.Filled.Paid, "spending_total_route", R.string.title_spending_total),
     WALLET_TOTAL_SCREEN(Icons.Filled.Savings, "wallet_total_route", R.string.title_wallet_total),
+    SETTING_SCREEN(Icons.Filled.Settings, "setting_route", R.string.title_setting),
 }
 
 /**
@@ -46,5 +48,6 @@ fun AppNavHost(
         composable(route = NavigationScreens.HOME_SCREEN.route) { HomeScreen(hiltViewModel()) }
         composable(route = NavigationScreens.SPENDING_TOTAL_SCREEN.route) { SpendingTotalScreen(hiltViewModel()) }
         composable(route = NavigationScreens.WALLET_TOTAL_SCREEN.route) { WalletTotalScreen(hiltViewModel()) }
+        composable(route = NavigationScreens.SETTING_SCREEN.route) { SettingScreen(hiltViewModel()) }
     }
 }

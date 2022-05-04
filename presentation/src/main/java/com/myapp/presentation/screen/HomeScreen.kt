@@ -4,8 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import com.myapp.component.component.ChartValue
 import com.myapp.component.component.TotalChartContent
+import com.myapp.model.value.*
 import com.myapp.presentation.extension.chartColor
-import com.myapp.model.StepnCoin
 import com.myapp.presentation.viewmodel.HomeViewModel
 
 /**
@@ -14,19 +14,19 @@ import com.myapp.presentation.viewmodel.HomeViewModel
  */
 @Composable
 fun HomeScreen(viewModel: HomeViewModel) {
-    SpendingTotalContent(viewModel)
+    HomeContent(viewModel)
 }
 
 @Composable
-private fun SpendingTotalContent(viewModel: HomeViewModel) {
+private fun HomeContent(viewModel: HomeViewModel) {
     val data = listOf(
-        StepnCoin.Gst(10000f),
-        StepnCoin.Gmt(501f),
-        StepnCoin.Solana(12800f),
-        StepnCoin.Usdc(1.849f)
+        GstCoin(45000f),
+        GmtCoin(23000f),
+        SolanaCoin(12800f),
+        UsdcCoin(134.849f)
     )
 
-    val chartValues = data.map{ ChartValue(it.label, it.money.toString(), it.money, it.chartColor()) }
+    val chartValues = data.map{ ChartValue(it.type().label, it.value.toString(), it.value, it.type().chartColor()) }
     Column {
         TotalChartContent(
             items = chartValues,

@@ -5,19 +5,20 @@ import com.myapp.component.theme.gmtColor
 import com.myapp.component.theme.gstColor
 import com.myapp.component.theme.solanaColor
 import com.myapp.component.theme.usdcColor
-import com.myapp.model.StepnCoin
+import com.myapp.model.value.StepnCoin
+import com.myapp.model.value.StepnCoinType
 
 
 /**
- * StepnCoinの色定義
+ * StepnCoinTypeの色定義
  *
  * @return 各Labelに対するグラフ色
  */
-fun StepnCoin.chartColor() : Color {
+fun StepnCoinType.chartColor() : Color {
     return when(this) {
-        is StepnCoin.Gmt -> gmtColor
-        is StepnCoin.Gst -> gstColor
-        is StepnCoin.Solana -> solanaColor
-        is StepnCoin.Usdc -> usdcColor
+        StepnCoinType.GMT -> gmtColor
+        StepnCoinType.GST -> gstColor
+        StepnCoinType.SOL -> solanaColor
+        StepnCoinType.USCD -> usdcColor
     }
 }
