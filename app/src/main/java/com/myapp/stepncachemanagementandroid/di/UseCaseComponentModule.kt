@@ -12,6 +12,6 @@ import dagger.hilt.components.SingletonComponent
 abstract class UseCaseComponentModule {
 
     @Binds
-    abstract fun bindCoinUseCase(coinUseCase: CoinUseCaseImpl): CoinUseCase
+    abstract fun bindCoinUseCase(coinUseCaseImpl: CoinUseCaseImpl): CoinUseCase
 
 }

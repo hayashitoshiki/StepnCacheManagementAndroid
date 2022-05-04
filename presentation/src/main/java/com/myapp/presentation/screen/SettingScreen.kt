@@ -55,8 +55,8 @@ private fun SettingContent(
         UpdateInputArea(
             label = StepnCoinType.GMT.label,
             value = state.walletGmt,
-            onClickAction = { action(SettingContract.Event.OnUpdateWalletCoin(StepnCoinType.GST)) },
-            onTextChange = { action(SettingContract.Event.OnChangeWalletGst(it)) }
+            onClickAction = { action(SettingContract.Event.OnUpdateWalletCoin(StepnCoinType.GMT)) },
+            onTextChange = { action(SettingContract.Event.OnChangeWalletGmt(it)) }
         )
         UpdateInputArea(
             label = StepnCoinType.GST.label,

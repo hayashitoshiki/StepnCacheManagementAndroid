@@ -4,6 +4,7 @@ import com.myapp.composesample.util.base.BaseContract
 import com.myapp.composesample.util.base.BaseViewModel
 import com.myapp.domain.usecase.CoinUseCase
 import com.myapp.model.value.*
+import com.myapp.presentation.extension.changeStrValue
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -16,6 +17,28 @@ import javax.inject.Inject
 class SettingViewModel @Inject constructor(
     private val coinUseCase: CoinUseCase
 ) : BaseViewModel<SettingContract.State, SettingContract.Effect, SettingContract.Event>() {
+
+    init {
+        val wallet = coinUseCase.getWalletCoin()
+        val spending = coinUseCase.getSpendingCoin()
+        val rate = coinUseCase.getRateCoin()
+
+        setState {
+            copy(
+                spendingGmt = spending.gmt.value.changeStrValue(),
+                spendingGst = spending.gst.value.changeStrValue(),
+                spendingSol = spending.sol.value.changeStrValue(),
+                walletGmt = wallet.gmt.value.changeStrValue(),
+                walletGst = wallet.gst.value.changeStrValue(),
+                walletSol = wallet.sol.value.changeStrValue(),
+                walletUsdc = wallet.usdc.value.changeStrValue(),
+                rateGmt = rate.gmt.value.changeStrValue(),
+                rateGst = rate.gst.value.changeStrValue(),
+                rateSol = rate.sol.value.changeStrValue(),
+                rateUsdc = rate.usdc.value.changeStrValue(),
+            )
+        }
+    }
 
     override fun initState(): SettingContract.State {
         return SettingContract.State()
@@ -36,7 +59,6 @@ class SettingViewModel @Inject constructor(
         is SettingContract.Event.OnChangeWalletGst -> onChangeWalletGst(event.coin)
         is SettingContract.Event.OnChangeWalletSol -> onChangeWalletSol(event.coin)
         is SettingContract.Event.OnChangeWalletUsdc -> onChangeWalletUsdc(event.coin)
-
     }
 
     private fun changeCoinValue(value: String) : Float {
@@ -89,7 +111,7 @@ class SettingViewModel @Inject constructor(
                 SolanaCoin(changeCoinValue(state.value.rateSol))
             }
             StepnCoinType.USCD -> {
-                SolanaCoin(changeCoinValue(state.value.rateUsdc))
+                UsdcCoin(changeCoinValue(state.value.rateUsdc))
             }
         }
         coinUseCase.updateRateCoin(coin)
@@ -106,7 +128,7 @@ class SettingViewModel @Inject constructor(
                 SolanaCoin(changeCoinValue(state.value.walletSol))
             }
             StepnCoinType.USCD -> {
-                SolanaCoin(changeCoinValue(state.value.walletUsdc))
+                UsdcCoin(changeCoinValue(state.value.walletUsdc))
             }
         }
         coinUseCase.updateWalletCoin(coin)
