@@ -15,4 +15,6 @@ data class Spending(
     var gst: GstCoin,
     var gmt: GmtCoin,
     var sol: SolanaCoin
-)
+) {
+    fun values() = listOf(gst, gmt, sol)
+}

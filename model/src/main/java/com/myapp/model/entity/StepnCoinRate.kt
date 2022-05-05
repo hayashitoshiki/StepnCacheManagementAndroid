@@ -15,4 +15,11 @@ data class StepnCoinRate(
     var gmt: GmtCoin,
     var sol: SolanaCoin,
     var usdc: UsdcCoin
-)
+) {
+    fun getRate(type: StepnCoinType) = when(type) {
+        StepnCoinType.GMT -> gmt
+        StepnCoinType.GST -> gst
+        StepnCoinType.SOL -> sol
+        StepnCoinType.USCD -> usdc
+    }
+}
