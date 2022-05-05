@@ -4,6 +4,8 @@ import com.myapp.component.component.ChartValue
 import com.myapp.composesample.util.base.BaseContract
 import com.myapp.composesample.util.base.BaseViewModel
 import com.myapp.domain.usecase.CoinUseCase
+import com.myapp.model.value.RealAssets
+import com.myapp.model.value.StepnCoinType
 import com.myapp.presentation.extension.chartColor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -25,7 +27,11 @@ class WalletTotalViewModel  @Inject constructor(
                 ChartValue(
                     it.type().label,
                     it.value.toString(),
-                    it.value * rates.getRate(it.type()).value,
+                    if (it is RealAssets) {
+                        it.value * rates.getRate(it.type()).value * rates.getRate(StepnCoinType.SOL).value
+                    } else {
+                        it.value * rates.getRate(it.type()).value
+                    },
                     it.type().chartColor()
                 )
             }
