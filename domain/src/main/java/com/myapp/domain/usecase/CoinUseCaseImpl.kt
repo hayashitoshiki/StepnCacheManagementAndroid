@@ -23,30 +23,39 @@ class CoinUseCaseImpl@Inject constructor(
         return localCoinRepository.getRateCoin()
     }
 
-    override fun updateWalletCoin(coin: StepnCoin) {
-        when(coin) {
-            is GmtCoin -> localCoinRepository.updateWalletGmt(coin)
-            is GstCoin -> localCoinRepository.updateWalletGst(coin)
-            is SolanaCoin -> localCoinRepository.updateWalletSol(coin)
-            is UsdcCoin -> localCoinRepository.updateWalletUsdc(coin)
+    override fun updateWalletAssets(assets: Assets) {
+        when(assets) {
+            is GmtCoin -> localCoinRepository.updateWalletGmt(assets)
+            is GstCoin -> localCoinRepository.updateWalletGst(assets)
+            is SolanaCoin -> localCoinRepository.updateWalletSol(assets)
+            is UsdcCoin -> localCoinRepository.updateWalletUsdc(assets)
+            is GemAssets -> localCoinRepository.updateWalletGem(assets)
+            is ShoeboxAssets -> localCoinRepository.updateWalletShoebox(assets)
+            is SneakerAssets -> localCoinRepository.updateWalletSneaker(assets)
         }
     }
 
-    override fun updateSpendingCoin(coin: StepnCoin) {
-        when(coin) {
-            is GmtCoin -> localCoinRepository.updateSpendingGmt(coin)
-            is GstCoin -> localCoinRepository.updateSpendingGst(coin)
-            is SolanaCoin -> localCoinRepository.updateSpendingSol(coin)
+    override fun updateSpendingAssets(assets: Assets) {
+        when(assets) {
+            is GmtCoin -> localCoinRepository.updateSpendingGmt(assets)
+            is GstCoin -> localCoinRepository.updateSpendingGst(assets)
+            is SolanaCoin -> localCoinRepository.updateSpendingSol(assets)
             is UsdcCoin -> throw IllegalAccessError("SpendingはUSDCには存在しません。")
+            is GemAssets -> localCoinRepository.updateSpendingGem(assets)
+            is ShoeboxAssets -> localCoinRepository.updateSpendingShoebox(assets)
+            is SneakerAssets -> localCoinRepository.updateSpendingSneaker(assets)
         }
     }
 
-    override fun updateRateCoin(coin: StepnCoin) {
-        when(coin) {
-            is GmtCoin -> localCoinRepository.updateRateGmt(coin)
-            is GstCoin -> localCoinRepository.updateRateGst(coin)
-            is SolanaCoin -> localCoinRepository.updateRateSol(coin)
-            is UsdcCoin -> localCoinRepository.updateRateUsdc(coin)
+    override fun updateRateAssets(assets: Assets) {
+        when(assets) {
+            is GmtCoin -> localCoinRepository.updateRateGmt(assets)
+            is GstCoin -> localCoinRepository.updateRateGst(assets)
+            is SolanaCoin -> localCoinRepository.updateRateSol(assets)
+            is UsdcCoin -> localCoinRepository.updateRateUsdc(assets)
+            is GemAssets -> localCoinRepository.updateRateGem(assets)
+            is ShoeboxAssets -> localCoinRepository.updateRateShoebox(assets)
+            is SneakerAssets -> localCoinRepository.updateRateSneaker(assets)
         }
     }
 }

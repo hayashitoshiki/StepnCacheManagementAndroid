@@ -19,14 +19,23 @@ interface LocalCoinRepository {
     fun updateWalletGst(coin: GstCoin)
     fun updateWalletSol(coin: SolanaCoin)
     fun updateWalletUsdc(coin: UsdcCoin)
+    fun updateWalletGem(assets: GemAssets)
+    fun updateWalletShoebox(assets: ShoeboxAssets)
+    fun updateWalletSneaker(assets: SneakerAssets)
 
     fun updateRateGmt(coin: GmtCoin)
     fun updateRateGst(coin: GstCoin)
     fun updateRateSol(coin: SolanaCoin)
     fun updateRateUsdc(coin: UsdcCoin)
+    fun updateRateGem(assets: GemAssets)
+    fun updateRateShoebox(assets: ShoeboxAssets)
+    fun updateRateSneaker(assets: SneakerAssets)
 
     fun updateSpendingGmt(coin: GmtCoin)
     fun updateSpendingGst(coin: GstCoin)
     fun updateSpendingSol(coin: SolanaCoin)
+    fun updateSpendingGem(assets: GemAssets)
+    fun updateSpendingShoebox(assets: ShoeboxAssets)
+    fun updateSpendingSneaker(assets: SneakerAssets)
 
 }

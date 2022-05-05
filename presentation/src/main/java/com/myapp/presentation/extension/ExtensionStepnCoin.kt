@@ -1,11 +1,9 @@
 package com.myapp.presentation.extension
 
 import androidx.compose.ui.graphics.Color
-import com.myapp.component.theme.gmtColor
-import com.myapp.component.theme.gstColor
-import com.myapp.component.theme.solanaColor
-import com.myapp.component.theme.usdcColor
-import com.myapp.model.value.StepnCoin
+import com.myapp.component.theme.*
+import com.myapp.model.value.AssetsType
+import com.myapp.model.value.RealAssetsType
 import com.myapp.model.value.StepnCoinType
 
 
@@ -14,11 +12,14 @@ import com.myapp.model.value.StepnCoinType
  *
  * @return 各Labelに対するグラフ色
  */
-fun StepnCoinType.chartColor() : Color {
+fun AssetsType.chartColor() : Color {
     return when(this) {
         StepnCoinType.GMT -> gmtColor
         StepnCoinType.GST -> gstColor
         StepnCoinType.SOL -> solanaColor
         StepnCoinType.USCD -> usdcColor
+        RealAssetsType.GEM -> gemColor
+        RealAssetsType.SHOEBOX -> shoeboxColor
+        RealAssetsType.SNEAKER -> sneakerColor
     }
 }

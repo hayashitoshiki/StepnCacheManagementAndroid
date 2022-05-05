@@ -14,7 +14,11 @@ data class Wallet(
     var gst: GstCoin,
     var gmt: GmtCoin,
     var sol: SolanaCoin,
-    var usdc: UsdcCoin
+    var usdc: UsdcCoin,
+    var gem: GemAssets,
+    var shoebox: ShoeboxAssets,
+    var sneaker: SneakerAssets,
+
 ) {
-    fun values() = listOf(gst, gmt, sol, usdc)
+    fun values() = listOf(gst, gmt, sol, usdc, sneaker, gem, shoebox)
 }

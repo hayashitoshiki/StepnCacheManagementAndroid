@@ -3,6 +3,7 @@ package com.myapp.domain.usecase
 import com.myapp.model.entity.Spending
 import com.myapp.model.entity.StepnCoinRate
 import com.myapp.model.entity.Wallet
+import com.myapp.model.value.Assets
 import com.myapp.model.value.StepnCoin
 
 /**
@@ -15,7 +16,7 @@ interface CoinUseCase {
     fun getSpendingCoin() : Spending
     fun getRateCoin() : StepnCoinRate
 
-    fun updateWalletCoin(coin: StepnCoin)
-    fun updateSpendingCoin(coin: StepnCoin)
-    fun updateRateCoin(coin: StepnCoin)
+    fun updateWalletAssets(assets: Assets)
+    fun updateSpendingAssets(assets: Assets)
+    fun updateRateAssets(assets: Assets)
 }

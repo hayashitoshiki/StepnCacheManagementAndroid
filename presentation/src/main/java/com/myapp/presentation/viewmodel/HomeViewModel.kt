@@ -26,13 +26,21 @@ class HomeViewModel @Inject constructor(
             GmtCoin(spending.gmt.value + wallet.gmt.value),
             SolanaCoin(spending.sol.value + wallet.sol.value),
             wallet.usdc,
+            GemAssets((spending.gem.value + wallet.gem.value)),
+            ShoeboxAssets((spending.shoebox.value + wallet.shoebox.value)),
+            SneakerAssets((spending.sneaker.value + wallet.sneaker.value))
+            // スニーカー sneaker * rate * rates.getRateCoin()
         )
         val rates = coinUseCase.getRateCoin()
         val chartValues = all.map{
             ChartValue(
                 it.type().label,
                 it.value.toString(),
-                it.value * rates.getRate(it.type()).value,
+                if (it is RealAssets) {
+                    it.value * rates.getRate(it.type()).value * rates.getRate(StepnCoinType.SOL).value
+                } else {
+                    it.value * rates.getRate(it.type()).value
+                },
                 it.type().chartColor()
             )
         }

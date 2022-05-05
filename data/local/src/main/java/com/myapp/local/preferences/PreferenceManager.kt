@@ -24,14 +24,23 @@ class PreferenceManager @Inject constructor(val context: Context) {
             SPENDING_GST,
             SPENDING_GMT,
             SPENDING_SOL,
+            SPENDING_GEM,
+            SPENDING_SHOEBOX,
+            SPENDING_SNEAKER,
             WALLET_GST,
             WALLET_GMT,
             WALLET_SOL,
             WALLET_USDC,
+            WALLET_GEM,
+            WALLET_SHOEBOX,
+            WALLET_SNEAKER,
             RATE_GST,
             RATE_GMT,
             RATE_SOL,
-            RATE_USDC
+            RATE_USDC,
+            RATE_GEM,
+            RATE_SHOEBOX,
+            RATE_SNEAKER
         }
     }
 

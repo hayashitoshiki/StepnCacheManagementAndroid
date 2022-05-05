@@ -1,14 +1,13 @@
 package com.myapp.model.value
 
 /**
- * STEP' コインの既定クラス
+ * 金融資産
  *
  */
-sealed class StepnCoin {
-    abstract val value: Float
-    abstract fun type() : StepnCoinType
+sealed class StepnCoin : Assets() {
+    abstract override val value: Float
+    abstract override fun type() : StepnCoinType
 }
-
 
 data class GmtCoin(override val value: Float) : StepnCoin() {
     override fun type() = StepnCoinType.GMT

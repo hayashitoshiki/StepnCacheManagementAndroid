@@ -1,8 +1,6 @@
 package com.myapp.model.entity
 
-import com.myapp.model.value.GmtCoin
-import com.myapp.model.value.GstCoin
-import com.myapp.model.value.SolanaCoin
+import com.myapp.model.value.*
 
 /**
  * Spending
@@ -14,7 +12,10 @@ import com.myapp.model.value.SolanaCoin
 data class Spending(
     var gst: GstCoin,
     var gmt: GmtCoin,
-    var sol: SolanaCoin
+    var sol: SolanaCoin,
+    var gem: GemAssets,
+    var shoebox: ShoeboxAssets,
+    var sneaker: SneakerAssets
 ) {
-    fun values() = listOf(gst, gmt, sol)
+    fun values() = listOf(gst, gmt, sol, sneaker, gem, shoebox)
 }

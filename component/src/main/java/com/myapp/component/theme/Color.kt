@@ -14,10 +14,17 @@ val Gray700 = Color(0xFF616161)
 val LightBlue700 = Color(0xFF0288D1)
 val Indigo700 = Color(0xFF303F9F)
 
+val Red300 = Color(0xFFE57373)
+val LightBlue300 = Color(0xFF4FC3F7)
+val Yellow300 = Color(0xFFFFF176)
+
 val gstColor = Gray700
 val gmtColor = Yellow700
 val solanaColor = Indigo700
 val usdcColor = LightBlue700
+val gemColor = LightBlue300
+val shoeboxColor = Yellow300
+val sneakerColor = Red300
 
 
 // Rally is always dark themed.

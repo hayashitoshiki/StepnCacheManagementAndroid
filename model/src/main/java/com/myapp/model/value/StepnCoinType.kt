@@ -1,14 +1,13 @@
 package com.myapp.model.value
 
 /**
- * STEP'Nのコインの種別定義
+ * 金融資産の種別
  *
- * @property label 表示用ラベル(短縮名)
- * @property fullName 表示用ラベル(フルネーム)
+ * @property label 表示用ラベル
  */
-enum class StepnCoinType(val label: String, val fullName: String) {
-    GMT("GMT", "STEPN"),
-    GST("GST", "Green Satoshi Token"),
-    SOL("SOL", "Solana"),
-    USCD("USDC", "USD Coin")
+sealed class StepnCoinType(label: String) : AssetsType(label) {
+    object GMT : StepnCoinType("GMT")
+    object GST : StepnCoinType("GST")
+    object SOL : StepnCoinType("SOL")
+    object USCD : StepnCoinType("USDC")
 }
