@@ -228,102 +228,102 @@ class SettingViewModel @Inject constructor(
     }
     private fun onChangeSpendingGst(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeSpendingGst != coin
+        val enabled = state.value.beforeSpendingGst != coin && coin.isNotEmpty()
         setState { copy(spendingGst = coin, enabledSpendingGst = enabled) }
     }
     private fun onChangeSpendingSol(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeSpendingSol != coin
+        val enabled = state.value.beforeSpendingSol != coin && coin.isNotEmpty()
         setState { copy(spendingSol = coin, enabledSpendingSol = enabled) }
     }
     private fun onChangeSpendingGmt(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeSpendingGmt != coin
+        val enabled = state.value.beforeSpendingGmt != coin && coin.isNotEmpty()
         setState { copy(spendingGmt = coin, enabledSpendingGmt = enabled) }
     }
     private fun onChangeSpendingGem(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        val enabled = state.value.beforeSpendingGem != assets
-        setState { copy(spendingGem = assets, enabledWalletGem = enabled) }
+        val enabled = state.value.beforeSpendingGem != assets && assets.isNotEmpty()
+        setState { copy(spendingGem = assets, enabledSpendingGem = enabled) }
     }
     private fun onChangeSpendingShoebox(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        val enabled = state.value.beforeSpendingShoebox != assets
-        setState { copy(spendingShoebox = assets, enabledWalletShoebox = enabled) }
+        val enabled = state.value.beforeSpendingShoebox != assets && assets.isNotEmpty()
+        setState { copy(spendingShoebox = assets, enabledSpendingShoebox = enabled) }
     }
     private fun onChangeSpendingSneaker(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        val enabled = state.value.beforeSpendingSneaker != assets
-        setState { copy(spendingSneaker = assets, enabledWalletSneaker = enabled) }
+        val enabled = state.value.beforeSpendingSneaker != assets && assets.isNotEmpty()
+        setState { copy(spendingSneaker = assets, enabledSpendingSneaker = enabled) }
     }
     private fun onChangeRateGmt(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeRateGmt != coin
+        val enabled = state.value.beforeRateGmt != coin && coin.isNotEmpty()
         setState { copy(rateGmt = coin, enabledRateGmt = enabled) }
     }
     private fun onChangeRateGst(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeRateGst != coin
+        val enabled = state.value.beforeRateGst != coin && coin.isNotEmpty()
         setState { copy(rateGst = coin, enabledRateGst = enabled) }
     }
     private fun onChangeRateSol(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeRateSol != coin
+        val enabled = state.value.beforeRateSol != coin && coin.isNotEmpty()
         setState { copy(rateSol = coin, enabledRateSol = enabled) }
     }
     private fun onChangeRateUsdc(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeRateUsdc != coin
+        val enabled = state.value.beforeRateUsdc != coin && coin.isNotEmpty()
         setState { copy(rateUsdc = coin, enabledRateSol = enabled) }
     }
     private fun onChangeRateGem(assets: String) {
         if (!checkCoinValueUpdate(assets)) return
-        val enabled = state.value.beforeRateGem != assets
+        val enabled = state.value.beforeRateGem != assets && assets.isNotEmpty()
         setState { copy(rateGem = assets, enabledRateGem = enabled) }
     }
     private fun onChangeRateShoebox(assets: String) {
         if (!checkCoinValueUpdate(assets)) return
-        val enabled = state.value.beforeRateShoebox != assets
+        val enabled = state.value.beforeRateShoebox != assets && assets.isNotEmpty()
         setState { copy(rateShoebox = assets, enabledRateShoebox = enabled) }
     }
     private fun onChangeRateSneaker(assets: String) {
         if (!checkCoinValueUpdate(assets)) return
-        val enabled = state.value.beforeRateSneaker != assets
+        val enabled = state.value.beforeRateSneaker != assets && assets.isNotEmpty()
         setState { copy(rateSneaker = assets, enabledRateSneaker = enabled) }
     }
     private fun onChangeWalletGmt(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeWalletGmt != coin
+        val enabled = state.value.beforeWalletGmt != coin && coin.isNotEmpty()
         setState { copy(walletGmt = coin, enabledWalletGmt = enabled) }
     }
     private fun onChangeWalletGst(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeWalletGst != coin
+        val enabled = state.value.beforeWalletGst != coin && coin.isNotEmpty()
         setState { copy(walletGst = coin, enabledWalletGst = enabled) }
     }
     private fun onChangeWalletSol(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeWalletSol != coin
+        val enabled = state.value.beforeWalletSol != coin && coin.isNotEmpty()
         setState { copy(walletSol = coin, enabledWalletSol = enabled) }
     }
     private fun onChangeWalletUsdc(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        val enabled = state.value.beforeWalletUsdc != coin
+        val enabled = state.value.beforeWalletUsdc != coin && coin.isNotEmpty()
         setState { copy(walletUsdc = coin, enabledWalletUsdc = enabled) }
     }
     private fun onChangeWalletGem(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        val enabled = state.value.beforeWalletGem != assets
+        val enabled = state.value.beforeWalletGem != assets && assets.isNotEmpty()
         setState { copy(walletGem = assets, enabledWalletGem = enabled) }
     }
     private fun onChangeWalletShoebox(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        val enabled = state.value.beforeWalletShoebox != assets
+        val enabled = state.value.beforeWalletShoebox != assets && assets.isNotEmpty()
         setState { copy(walletShoebox = assets, enabledWalletShoebox = enabled) }
     }
     private fun onChangeWalletSneaker(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        val enabled = state.value.beforeWalletSneaker != assets
+        val enabled = state.value.beforeWalletSneaker != assets && assets.isNotEmpty()
         setState { copy(walletSneaker = assets, enabledWalletSneaker = enabled) }
     }
 }

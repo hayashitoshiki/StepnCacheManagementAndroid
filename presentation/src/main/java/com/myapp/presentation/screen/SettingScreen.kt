@@ -1,5 +1,6 @@
 package com.myapp.presentation.screen
 
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.rememberScrollState
@@ -13,6 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.KeyboardType
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.myapp.component.component.Sample1TabComponent
@@ -41,7 +44,16 @@ private fun SettingContent(
     state: SettingContract.State,
     action: (SettingContract.Event) -> Unit
 ) {
-    Column {
+    // 背景タップ設定
+    val focusManager = LocalFocusManager.current
+
+    Column(
+        modifier = Modifier.pointerInput(Unit) {
+            detectTapGestures(onTap = {
+                focusManager.clearFocus()
+            })
+        }
+    ) {
         Sample1TabComponent(
             @Composable { SettingSpendingContent(state, action) },
             @Composable { SettingWalletContent(state, action) },
@@ -49,39 +61,6 @@ private fun SettingContent(
         )
     }
 }
-
-@Composable
-fun UpdateInputArea(
-    modifier: Modifier = Modifier,
-    label: String,
-    value: String,
-    enabled: Boolean = true,
-    onTextChange: (String) -> Unit,
-    onClickAction: () -> Unit
-) {
-    val tint = if(enabled) { Green500 } else { Gray700 }
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        OutlinedTextField(
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            value = value,
-            onValueChange = { onTextChange(it) },
-            label = { Text(label) },
-        )
-        IconButton(
-            enabled = enabled,
-            onClick = { onClickAction() }) {
-            Icon(
-                Icons.Filled.Refresh,
-                "",
-                tint = tint
-            )
-        }
-    }
-}
-
 
 @Composable
 private fun SettingWalletContent(
@@ -247,5 +226,35 @@ private fun SettingRateContent(
             onClickAction = { action(SettingContract.Event.OnUpdateRateAssets(RealAssetsType.SNEAKER)) },
             onTextChange = { action(SettingContract.Event.OnChangeRateSneaker(it)) }
         )
+    }
+}
+
+@Composable
+fun UpdateInputArea(
+    modifier: Modifier = Modifier,
+    label: String,
+    value: String,
+    enabled: Boolean = true,
+    onTextChange: (String) -> Unit,
+    onClickAction: () -> Unit
+) {
+
+    val tint = if(enabled) { Green500 } else { Gray700 }
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        OutlinedTextField(
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            value = value,
+            onValueChange = { onTextChange(it) },
+            label = { Text(label) },
+        )
+        IconButton(
+            enabled = enabled,
+            onClick = { onClickAction() }) {
+            Icon(
+                Icons.Filled.Refresh,
+                "",
+                tint = tint
+            )
+        }
     }
 }
