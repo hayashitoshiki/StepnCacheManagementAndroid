@@ -26,6 +26,18 @@ val gemColor = LightBlue300
 val shoeboxColor = Yellow300
 val sneakerColor = Red300
 
+/**
+ * 文字色定義
+ */
+object TextColor {
+    val lightPrimary = Color(0xFFFFFFFF)
+    val lightSecondary = Color(0xB3FFFFFF)
+    val lightDisable = Color(0x80FFFFFF)
+    val darkPrimary = Color(0xDE000000)
+    val darkSecondary = Color(0x8A000000)
+    val darkDisable = Color(0x61000000)
+    val error = Color(0xFFB00020)
+}
 
 // Rally is always dark themed.
 val ColorPalette = darkColors(

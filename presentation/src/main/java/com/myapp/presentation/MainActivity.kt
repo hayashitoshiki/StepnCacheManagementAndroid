@@ -14,9 +14,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.myapp.component.theme.StepnCacheManagementAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+@ExperimentalPagerApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +29,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@ExperimentalPagerApi
 @Composable
 fun StepnManegementApp() {
     StepnCacheManagementAndroidTheme {
@@ -52,7 +55,7 @@ fun StepnManegementApp() {
     }
 }
 
-
+@ExperimentalPagerApi
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {

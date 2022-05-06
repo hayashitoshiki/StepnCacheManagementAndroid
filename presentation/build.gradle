@@ -29,6 +29,11 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.activity:activity-compose:1.4.0'
 
+    // Accompanist
+    def accompanist_version = "0.23.0"
+    implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+
     // navigation
     def compose_navigation_version = "2.4.0-alpha04"
     implementation "androidx.navigation:navigation-compose:$compose_navigation_version"

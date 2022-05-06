@@ -9,6 +9,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.myapp.presentation.screen.HomeScreen
 import com.myapp.presentation.screen.SettingScreen
 import com.myapp.presentation.screen.SpendingTotalScreen
@@ -37,6 +38,7 @@ enum class NavigationScreens(
  *
  * @param navController ナビゲーションAPI
  */
+@ExperimentalPagerApi
 @Composable
 fun AppNavHost(
     navController: NavHostController,

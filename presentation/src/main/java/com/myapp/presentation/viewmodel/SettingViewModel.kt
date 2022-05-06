@@ -44,6 +44,26 @@ class SettingViewModel @Inject constructor(
                 rateGem = rate.gem.value.changeStrValue(),
                 rateShoebox = rate.shoebox.value.changeStrValue(),
                 rateSneaker = rate.sneaker.value.changeStrValue(),
+                beforeSpendingGmt = spending.gmt.value.changeStrValue(),
+                beforeSpendingGst = spending.gst.value.changeStrValue(),
+                beforeSpendingSol = spending.sol.value.changeStrValue(),
+                beforeSpendingGem = spending.gem.value.changeStrValue(),
+                beforeSpendingShoebox = spending.shoebox.value.changeStrValue(),
+                beforeSpendingSneaker = spending.sneaker.value.changeStrValue(),
+                beforeWalletGmt = wallet.gmt.value.changeStrValue(),
+                beforeWalletGst = wallet.gst.value.changeStrValue(),
+                beforeWalletSol = wallet.sol.value.changeStrValue(),
+                beforeWalletUsdc = wallet.usdc.value.changeStrValue(),
+                beforeWalletGem = wallet.gem.value.changeStrValue(),
+                beforeWalletShoebox = wallet.shoebox.value.changeStrValue(),
+                beforeWalletSneaker = wallet.sneaker.value.changeStrValue(),
+                beforeRateGmt = rate.gmt.value.changeStrValue(),
+                beforeRateGst = rate.gst.value.changeStrValue(),
+                beforeRateSol = rate.sol.value.changeStrValue(),
+                beforeRateUsdc = rate.usdc.value.changeStrValue(),
+                beforeRateGem = rate.gem.value.changeStrValue(),
+                beforeRateShoebox = rate.shoebox.value.changeStrValue(),
+                beforeRateSneaker = rate.sneaker.value.changeStrValue(),
             )
         }
     }
@@ -111,24 +131,30 @@ class SettingViewModel @Inject constructor(
     private fun onUpdateSpendingCoin(type: AssetsType) {
         val assets = when(type) {
             StepnCoinType.GMT -> {
+                setState { copy(beforeSpendingGmt = state.value.spendingGmt, enabledSpendingGmt = false) }
                 GmtCoin(changeCoinValue(state.value.spendingGmt))
             }
             StepnCoinType.GST -> {
+                setState { copy(beforeSpendingGst = state.value.spendingGst, enabledSpendingGst = false) }
                GstCoin(changeCoinValue(state.value.spendingGst))
             }
             StepnCoinType.SOL -> {
+                setState { copy(beforeSpendingSol = state.value.spendingSol, enabledSpendingSol = false) }
                 SolanaCoin(changeCoinValue(state.value.spendingSol))
             }
             StepnCoinType.USCD -> {
                throw IllegalAccessError("SpendingはUSDCには存在しません。")
             }
             RealAssetsType.GEM -> {
+                setState { copy(beforeSpendingGem = state.value.spendingGem, enabledSpendingGem = false) }
                 GemAssets(changeCoinValue(state.value.spendingGem))
             }
             RealAssetsType.SHOEBOX -> {
+                setState { copy(beforeSpendingShoebox = state.value.spendingShoebox, enabledSpendingShoebox = false) }
                 ShoeboxAssets(changeCoinValue(state.value.spendingShoebox))
             }
             RealAssetsType.SNEAKER -> {
+                setState { copy(beforeSpendingSneaker = state.value.spendingSneaker, enabledSpendingSneaker = false) }
                 SneakerAssets(changeCoinValue(state.value.spendingSneaker))
             }
         }
@@ -137,24 +163,31 @@ class SettingViewModel @Inject constructor(
     private fun onUpdateRateCoin(type: AssetsType) {
         val assets = when(type) {
             StepnCoinType.GMT -> {
+                setState { copy(beforeRateGmt = state.value.rateGmt, enabledRateGmt = false) }
                 GmtCoin(changeCoinValue(state.value.rateGmt))
             }
             StepnCoinType.GST -> {
+                setState { copy(beforeRateGst = state.value.rateGst, enabledRateGst = false) }
                 GstCoin(changeCoinValue(state.value.rateGst))
             }
             StepnCoinType.SOL -> {
+                setState { copy(beforeRateSol = state.value.rateSol, enabledRateSol = false) }
                 SolanaCoin(changeCoinValue(state.value.rateSol))
             }
             StepnCoinType.USCD -> {
+                setState { copy(beforeRateUsdc = state.value.rateUsdc, enabledRateUsdc = false) }
                 UsdcCoin(changeCoinValue(state.value.rateUsdc))
             }
             RealAssetsType.GEM -> {
+                setState { copy(beforeRateGem = state.value.rateGem, enabledRateGem = false) }
                 GemAssets(changeCoinValue(state.value.rateGem))
             }
             RealAssetsType.SHOEBOX -> {
+                setState { copy(beforeRateShoebox = state.value.rateShoebox, enabledRateShoebox = false) }
                 ShoeboxAssets(changeCoinValue(state.value.rateShoebox))
             }
             RealAssetsType.SNEAKER -> {
+                setState { copy(beforeRateSneaker = state.value.rateSneaker, enabledRateSneaker = false) }
                 SneakerAssets(changeCoinValue(state.value.rateSneaker))
             }
         }
@@ -163,24 +196,31 @@ class SettingViewModel @Inject constructor(
     private fun onUpdateWalletCoin(type: AssetsType) {
         val assets = when(type) {
             StepnCoinType.GMT -> {
+                setState { copy(beforeWalletGmt = state.value.walletGmt, enabledWalletGmt = false) }
                 GmtCoin(changeCoinValue(state.value.walletGmt))
             }
             StepnCoinType.GST -> {
+                setState { copy(beforeWalletGst = state.value.walletGst, enabledWalletGst = false) }
                 GstCoin(changeCoinValue(state.value.walletGst))
             }
             StepnCoinType.SOL -> {
+                setState { copy(beforeWalletSol = state.value.walletSol, enabledWalletSol = false) }
                 SolanaCoin(changeCoinValue(state.value.walletSol))
             }
             StepnCoinType.USCD -> {
+                setState { copy(beforeWalletUsdc = state.value.walletUsdc, enabledWalletUsdc = false) }
                 UsdcCoin(changeCoinValue(state.value.walletUsdc))
             }
             RealAssetsType.GEM -> {
+                setState { copy(beforeWalletGem = state.value.walletGem, enabledWalletGem = false) }
                 GemAssets(changeCoinValue(state.value.walletGem))
             }
             RealAssetsType.SHOEBOX -> {
+                setState { copy(beforeWalletShoebox = state.value.walletShoebox, enabledWalletShoebox = false) }
                 ShoeboxAssets(changeCoinValue(state.value.walletShoebox))
             }
             RealAssetsType.SNEAKER -> {
+                setState { copy(beforeWalletSneaker = state.value.walletSneaker, enabledWalletSneaker = false) }
                 SneakerAssets(changeCoinValue(state.value.walletSneaker))
             }
         }
@@ -188,83 +228,103 @@ class SettingViewModel @Inject constructor(
     }
     private fun onChangeSpendingGst(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(spendingGst = coin) }
+        val enabled = state.value.beforeSpendingGst != coin
+        setState { copy(spendingGst = coin, enabledSpendingGst = enabled) }
     }
     private fun onChangeSpendingSol(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(spendingSol = coin) }
+        val enabled = state.value.beforeSpendingSol != coin
+        setState { copy(spendingSol = coin, enabledSpendingSol = enabled) }
     }
     private fun onChangeSpendingGmt(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(spendingGmt = coin) }
+        val enabled = state.value.beforeSpendingGmt != coin
+        setState { copy(spendingGmt = coin, enabledSpendingGmt = enabled) }
     }
     private fun onChangeSpendingGem(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        setState { copy(spendingGem = assets) }
+        val enabled = state.value.beforeSpendingGem != assets
+        setState { copy(spendingGem = assets, enabledWalletGem = enabled) }
     }
     private fun onChangeSpendingShoebox(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        setState { copy(spendingShoebox = assets) }
+        val enabled = state.value.beforeSpendingShoebox != assets
+        setState { copy(spendingShoebox = assets, enabledWalletShoebox = enabled) }
     }
     private fun onChangeSpendingSneaker(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        setState { copy(spendingSneaker = assets) }
+        val enabled = state.value.beforeSpendingSneaker != assets
+        setState { copy(spendingSneaker = assets, enabledWalletSneaker = enabled) }
     }
     private fun onChangeRateGmt(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(rateGmt = coin) }
+        val enabled = state.value.beforeRateGmt != coin
+        setState { copy(rateGmt = coin, enabledRateGmt = enabled) }
     }
     private fun onChangeRateGst(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(rateGst = coin) }
+        val enabled = state.value.beforeRateGst != coin
+        setState { copy(rateGst = coin, enabledRateGst = enabled) }
     }
     private fun onChangeRateSol(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(rateSol = coin) }
+        val enabled = state.value.beforeRateSol != coin
+        setState { copy(rateSol = coin, enabledRateSol = enabled) }
     }
     private fun onChangeRateUsdc(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(rateUsdc = coin) }
+        val enabled = state.value.beforeRateUsdc != coin
+        setState { copy(rateUsdc = coin, enabledRateSol = enabled) }
     }
     private fun onChangeRateGem(assets: String) {
         if (!checkCoinValueUpdate(assets)) return
-        setState { copy(rateGem = assets) }
+        val enabled = state.value.beforeRateGem != assets
+        setState { copy(rateGem = assets, enabledRateGem = enabled) }
     }
     private fun onChangeRateShoebox(assets: String) {
         if (!checkCoinValueUpdate(assets)) return
-        setState { copy(rateShoebox = assets) }
+        val enabled = state.value.beforeRateShoebox != assets
+        setState { copy(rateShoebox = assets, enabledRateShoebox = enabled) }
     }
     private fun onChangeRateSneaker(assets: String) {
         if (!checkCoinValueUpdate(assets)) return
-        setState { copy(rateSneaker = assets) }
+        val enabled = state.value.beforeRateSneaker != assets
+        setState { copy(rateSneaker = assets, enabledRateSneaker = enabled) }
     }
     private fun onChangeWalletGmt(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(walletGmt = coin) }
+        val enabled = state.value.beforeWalletGmt != coin
+        setState { copy(walletGmt = coin, enabledWalletGmt = enabled) }
     }
     private fun onChangeWalletGst(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(walletGst = coin) }
+        val enabled = state.value.beforeWalletGst != coin
+        setState { copy(walletGst = coin, enabledWalletGst = enabled) }
     }
     private fun onChangeWalletSol(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(walletSol = coin) }
+        val enabled = state.value.beforeWalletSol != coin
+        setState { copy(walletSol = coin, enabledWalletSol = enabled) }
     }
     private fun onChangeWalletUsdc(coin: String) {
         if (!checkCoinValueUpdate(coin)) return
-        setState { copy(walletUsdc = coin) }
+        val enabled = state.value.beforeWalletUsdc != coin
+        setState { copy(walletUsdc = coin, enabledWalletUsdc = enabled) }
     }
     private fun onChangeWalletGem(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        setState { copy(walletGem = assets) }
+        val enabled = state.value.beforeWalletGem != assets
+        setState { copy(walletGem = assets, enabledWalletGem = enabled) }
     }
     private fun onChangeWalletShoebox(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        setState { copy(walletShoebox = assets) }
+        val enabled = state.value.beforeWalletShoebox != assets
+        setState { copy(walletShoebox = assets, enabledWalletShoebox = enabled) }
     }
     private fun onChangeWalletSneaker(assets: String) {
         if (!checkCountValueUpdate(assets)) return
-        setState { copy(walletSneaker = assets) }
+        val enabled = state.value.beforeWalletSneaker != assets
+        setState { copy(walletSneaker = assets, enabledWalletSneaker = enabled) }
     }
 }
 
@@ -320,6 +380,46 @@ interface SettingContract : BaseContract {
         val rateGem: String = "0",
         val rateShoebox: String = "0",
         val rateSneaker: String = "0",
+        val beforeSpendingGmt: String = "0",
+        val beforeSpendingGst: String = "0",
+        val beforeSpendingSol: String = "0",
+        val beforeSpendingGem: String = "0",
+        val beforeSpendingShoebox: String = "0",
+        val beforeSpendingSneaker: String = "0",
+        val beforeWalletGmt: String = "0",
+        val beforeWalletGst: String = "0",
+        val beforeWalletSol: String = "0",
+        val beforeWalletUsdc: String = "0",
+        val beforeWalletGem: String = "0",
+        val beforeWalletShoebox: String = "0",
+        val beforeWalletSneaker: String = "0",
+        val beforeRateGmt: String = "0",
+        val beforeRateGst: String = "0",
+        val beforeRateSol: String = "0",
+        val beforeRateUsdc: String = "0",
+        val beforeRateGem: String = "0",
+        val beforeRateShoebox: String = "0",
+        val beforeRateSneaker: String = "0",
+        val enabledSpendingGmt: Boolean = false,
+        val enabledSpendingGst: Boolean = false,
+        val enabledSpendingSol: Boolean = false,
+        val enabledSpendingGem: Boolean = false,
+        val enabledSpendingShoebox: Boolean = false,
+        val enabledSpendingSneaker: Boolean = false,
+        val enabledWalletGmt: Boolean = false,
+        val enabledWalletGst: Boolean = false,
+        val enabledWalletSol: Boolean = false,
+        val enabledWalletUsdc: Boolean = false,
+        val enabledWalletGem: Boolean = false,
+        val enabledWalletShoebox: Boolean = false,
+        val enabledWalletSneaker: Boolean = false,
+        val enabledRateGmt: Boolean = false,
+        val enabledRateGst: Boolean = false,
+        val enabledRateSol: Boolean = false,
+        val enabledRateUsdc: Boolean = false,
+        val enabledRateGem: Boolean = false,
+        val enabledRateShoebox: Boolean = false,
+        val enabledRateSneaker: Boolean = false,
     ) : BaseContract.State
 
     /**
